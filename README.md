@@ -2,7 +2,7 @@
 
 These install scripts provide a set of executable
 functions that install the necessary dependencies
-of invGKS brnach of [invDFT](https://github.com/dftfeDevelopers/invDFT.git)
+of invGKS branch of [invDFT](https://github.com/dftfeDevelopers/invDFT.git)
 on NERSC Perlmutter.
 
 To use these scripts, we assume you have cloned this
