@@ -36,6 +36,8 @@ and doesn't yet recognize the rc shell).
 
 The module environment intended to run invDFT has been extracted
 into `env2/env.rc`.  Edit this file before proceeding any further.
+The `$WD` in `env2/env.rc` is assumed to be `$PSCRATCH/install_invDFT`.
+If that is not case, update `$WD` with the appropriate path.
 Make sure that your module environment contains some version of the
 pre-requisites mentioned there. The above environment file is used both by the install and run
 phases of invDFT.
@@ -66,8 +68,7 @@ For example,
     compile_invDFT_invGKS 
 
 Each function follows a standard pattern - download source into `$WD/src`,
-patch, compile, and install into `$INST`. The `$WD` is assumed to be `$PSCRATCH/install_invDFT`.
-If that is not case, update `$WD` in `env2/env.rc` with the appropriate path.
+patch, compile, and install into `$INST`.
 It is HIGHLY recommended to check all warnings and errors from these installs to be sure
 you have not ended up with broken packages.
 
