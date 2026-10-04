@@ -1,19 +1,18 @@
-# Install DFT-FE
+# Install invDFT
 
 These install scripts provide a set of executable
 functions that install the necessary dependencies
-of [DFT-FE](https://github.com/dftfeDevelopers/dftfe)
+of invGKS brnach of [invDFT](https://github.com/dftfeDevelopers/invDFT.git)
 on NERSC Perlmutter.
 
 To use these scripts, we assume you have cloned this
-repository onto a system where you intend to install DFT-FE.
+repository onto a system where you intend to install invDFT.
 For example, I installed it into `$PSCRATCH/install_DFTFE` after 
 cloning into the scratch directory
 
     cd $PSCRATCH
-    git clone https://github.com/dftfeDevelopers/install_DFTFE.git install_DFTFE
-    cd install_DFTFE
-    git checkout perlmutterDevelop
+    git clone https://github.com/dftfeDevelopers/installationForInvGKS.git install_invDFT
+    cd install_invDFT
 
 ## Pre-requisites
 
@@ -35,17 +34,17 @@ and doesn't yet recognize the rc shell).
 
 ## Module Environment
 
-The module environment intended to run DFT-FE has been extracted
+The module environment intended to run invDFT has been extracted
 into `env2/env.rc`.  Edit this file before proceeding any further.
 Make sure that your module environment contains some version of the
 pre-requisites mentioned there. The above environment file is used both by the install and run
-phases of DFT-FE.
+phases of invDFT.
 
 ## Running the installation
 The installation itself is contained within the functions in
-`dftfe2.rc`.  Source this script using
+`installInvDFT.rc`.  Source this script using
 
-    . ./dftfe2.rc
+    . ./installInvDFT.rc
 
 and then run the functions listed in that file manually, in order.
 For example, 
@@ -63,8 +62,8 @@ For example,
     install_slepc
     install_numdiff
     install_dealii
-    install_dftd4 #(optional)
     compile_dftfe
+    compile_invDFT_invGKS 
 
 Each function follows a standard pattern - download source into `$WD/src`,
 patch, compile, and install into `$INST`.  It is HIGHLY recommended
@@ -72,19 +71,17 @@ to check all warnings and errors from these installs to be sure
 you have not ended up with broken packages.
 
 
-## Running DFT-FE
+## Running invDFT
 
-DFT-FE is built in real and cplx versions, depending on whether you
-want to enable k-points (implemented in the cplx version only).
 
 Assuming you have already sourced `env2/env.rc`, an example
-batch script running GPU-enabled DFT-FE on 2 nodes is below:
+batch script running GPU-enabled invDFT on 2 nodes is below:
 
     #!/bin/bash
     #SBATCH -A m2360_g
     #SBATCH -C gpu
     #SBATCH -q regular
-    #SBATCH --job-name test_dftfe
+    #SBATCH --job-name test_invDFT
     #SBATCH -t 00:10:00
     #SBATCH -n 8
     #SBATCH --ntasks-per-node=4
@@ -103,4 +100,4 @@ batch script running GPU-enabled DFT-FE on 2 nodes is below:
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WD/env2/lib64
     export BASE=$WD/src/dftfe/build/release/real
 
-    srun  $BASE/dftfe parameterFile.prm > output
+    srun  $BASE/dftfe dftfe_parameterFile.prm invDFT_parameterFile.prm > output
