@@ -66,8 +66,8 @@ For example,
     compile_invDFT_invGKS 
 
 Each function follows a standard pattern - download source into `$WD/src`,
-patch, compile, and install into `$INST`. The $WD is assumed to be $PSCRATCH/install_invDFT.
-If that is not case, update $WD in env2/env.rc with the appropriate path.
+patch, compile, and install into `$INST`. The `$WD' is assumed to be `$PSCRATCH/install_invDFT'.
+If that is not case, update `$WD' in `env2/env.rc' with the appropriate path.
 It is HIGHLY recommended to check all warnings and errors from these installs to be sure
 you have not ended up with broken packages.
 
