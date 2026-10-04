@@ -7,7 +7,7 @@ on NERSC Perlmutter.
 
 To use these scripts, we assume you have cloned this
 repository onto a system where you intend to install invDFT.
-For example, I installed it into `$PSCRATCH/install_DFTFE` after 
+For example, I installed it into `$PSCRATCH/install_invDFT` after 
 cloning into the scratch directory
 
     cd $PSCRATCH
