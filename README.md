@@ -98,6 +98,6 @@ batch script running GPU-enabled invDFT on 2 nodes is below:
 
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WD/env2/lib
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$WD/env2/lib64
-    export BASE=$WD/src/dftfe/build/release/real
+    export BASE=$WD/src/invDFT/build/release/real
 
-    srun  $BASE/dftfe dftfe_parameterFile.prm invDFT_parameterFile.prm > output
+    srun  $BASE/invDFT_exe dftfe_parameterFile.prm invDFT_parameterFile.prm > output
