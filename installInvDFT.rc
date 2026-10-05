@@ -464,7 +464,7 @@ fn install_numdiff {
 
 fn compile_dftfe{
   cd $WD/src
-  branch = forInvGKSCalc 
+  branch = invGKS 
   if(! test -d dftfe) {
     git clone -b $branch https://github.com/dftfeDevelopers/dftfe.git dftfe
   } if not {
